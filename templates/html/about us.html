@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/about us .css' %}">
+    <script src="https://kit.fontawesome.com/dbed6b6114.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <section>
+        <div class="image">
+            <img src="https://cdn.pixabay.com/photo/2017/08/26/23/37/business-2684758__340.png">
+        </div>
+
+        <div class="content">
+            <h2>About Us</h2>
+            <span><!-- line here --></span>
+            <p>
+                This website was created by college students as a part of their project. It's
+                designed to help students find hostels and rentals easily. But it's not just
+                for students – it's also a useful tool for hostel and rental property owners
+                who want to reach more potential renters. In a nutshell, it's a win-win for
+                both students and property owners, making the process of finding or renting
+                accommodations more straightforward and efficient. </p>
+            <ul class="links">
+                <li><a href="{% url 'index' %}">HOME</a></li>
+                <div class="vertical-line"></div>
+                <li><a href="#">STUDENT</a></li>
+                <div class="vertical-line"></div>
+                <li><a href="#">OWNER</a></li>
+            </ul>
+            <ul class="icons">
+                <li>
+                    <i class="fa fa-twitter"></i>
+                </li>
+                <li>
+                    <i class="fa fa-facebook"></i>
+                </li>
+                <li>
+                    <i class="fa fa-github"></i>
+                </li>
+                <li>
+                    <i class="fa fa-pinterest"></i>
+                </li>
+            </ul>
+        </div>
+    </section><br><br>
+</body>
+
+</html>

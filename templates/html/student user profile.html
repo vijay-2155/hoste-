@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <!-- Add Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS for styling -->
+    <style>
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+        }
+        .card {
+            background-color: #ffffff; /* Blue background color */
+            color: rgb(0, 0, 0); /* White text color */
+            border: 2px solid #3c83ff;
+        }
+        .profile-info-card {
+            background-color: #ffffff; /* Black background color */
+            color: rgb(0, 0, 0); /* White text color */
+        }
+        .saved-posts-card {
+            background-color: #fff; /* White background color */
+            color: #000; /* Black text color */
+            margin-top: 3%;
+        }
+        .list-group-item {
+            background-color: #ffffff; /* Blue background color for list items */
+            color: rgb(0, 0, 0); /* White text color for list items */
+            border: 2px solid #3c83ff;
+        }
+        .list-group-item:hover{
+            background-color: #3c83ff;
+            color:white;
+        }
+        .card-header{
+            background-color: black;
+            color:white;
+        }
+        .card-body{
+            background-color: white;
+            color:black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-3">
+        <!-- First Row -->
+        <div class="row">
+            <!-- Left Column - Circular Image Card and List Group -->
+            <div class="col-lg-3 profile-card">
+                <div class="card">
+                    <img src="\\wsl.localhost\Ubuntu-22.04\home\prjct hostls\images'\studentpp.png" class="card-img-top profile-image" alt="Profile Image" style="border:2px solid black;margin-left:20%;margin-top:3%">
+                    <div class="card-body">
+                        <h5 class="card-title">User Name</h5>
+                        <p class="card-text">Subtitle Text</p>
+                    </div>
+                </div>
+                <!-- List Group -->
+                <div class="list-group mt-3">
+                    <a href="webpage1.html" class="list-group-item list-group-item-action">edit information</a>
+                    <a href="webpage2.html" class="list-group-item list-group-item-action">change profile photo</a>
+                    <a href="studentshp.html" class="list-group-item list-group-item-action">home</a>
+                </div>
+            </div>
+
+            <!-- Right Column - Profile Information Card -->
+            <div class="col-lg-9 profile-info-card">
+                <div class="card">
+                    <div class="card-header">Profile Information</div>
+                    <div class="card-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" id="email" value="user@example.com" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="location">Location</label>
+                                <input type="text" class="form-control" id="location" value="City, Country" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="dob">Date of Birth</label>
+                                <input type="text" class="form-control" id="dob" value="MM/DD/YYYY" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="college">College Name</label>
+                                <input type="text" class="form-control" id="college" value="College Name" disabled>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Second Row - Saved Posts -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card saved-posts-card w-100">
+                    <div class="card-header">Saved Posts</div>
+                    <div class="card-body">
+                        <!-- Horizontal Cards with Margins -->
+                        <div class="row">
+                            <div class="col-lg-3 mb-3">
+                                <div class="card">
+                                    <img src="post1.jpg" class="card-img-top" alt="Post 1">
+                                    <div class="card-body">
+                                        <a href="post1.html"><h5 class="card-title">Post 1</h5></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 mb-3">
+                                <div class="card">
+                                    <img src="post2.jpg" class="card-img-top" alt="Post 2">
+                                    <div class="card-body">
+                                        <a href="post2.html"><h5 class="card-title">Post 2</h5></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 mb-3">
+                                <div class="card">
+                                    <img src="post3.jpg" class="card-img-top" alt="Post 3">
+                                    <div class="card-body">
+                                        <a href="post3.html"><h5 class="card-title">Post 3</h5></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 mb-3">
+                                <div class="card">
+                                    <img src="post4.jpg" class="card-img-top" alt="Post 4">
+                                    <div class="card-body">
+                                        <a href="post4.html"><h5 class="card-title">Post 4</h5></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Bootstrap JS and Popper.js scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2

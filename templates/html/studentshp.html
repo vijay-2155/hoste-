@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <title>Your Webpage</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+        /* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins',sans-serif;
+        }
+
+        /* Style for the navigation bar */
+        .navbar {
+            background-color: #000000;
+            overflow: hidden;
+            display: flex;
+            flex-direction: row;
+            justify-items: center;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 12;
+            height:30%;
+
+        }
+
+        .navbar a {
+            float: right;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 18px 15px;
+            text-decoration: none;
+            font-size:20px;
+            margin-right:1%;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+        .navbar a:hover{
+            background: #fff;
+            color: black;
+        }
+
+        .navbar div{
+            color: white;
+            margin:3%;
+            font-size: 25px;
+        }
+        
+        .search-section {
+            height: 100vh; /* Increase padding for extra height */
+        }
+        .search-section a{
+            background-color: rgb(30, 85, 248);
+            border: rgb(30, 85, 248);
+             color: white;
+             padding: 12px 12px;
+             border-radius: 5px;
+             text-decoration: none;
+        }
+        .search-section a:hover{
+            background-color: rgb(85, 197, 85);
+            color:black;
+
+        }
+        .insr pre{
+            font-family:'Poppins',sans-serif;
+            font-size: 22px;
+            margin-top: 2%;
+            margin-bottom:7%;
+        }
+        .scrolling-announcement {
+            background-color: #a5cdf9;
+            color: #000000;
+            text-align: center;
+            padding: 10px 0;
+            overflow: hidden;
+            font-family:'Poppins',sans-serif;
+           
+        }
+
+        .scrolling-text {
+            animation: scrollText 15s linear infinite;
+        }
+
+        @keyframes scrollText {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+        .scroller{
+            margin-top: 0%;
+            margin-bottom: 50%;
+        }
+      
+    </style>
+</head>
+<body>
+    
+    
+    <!-- Navigation bar -->
+    <div class="navbar">
+        <!-- Logo -->
+    <div class="logo">
+        <h2>HOSTELS & RENTALS</h2>
+    </div>
+        <a href="mainhp.html">Home</a>
+        <a href="about us.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="follow us.html">Feedback</a>
+        <a href="student user profile.html">PROFILE</a>
+        <a href="account settings.html">SETTINGS</a>
+        <a href="FIRST PAGE .HTML" class="logout">log out</a>
+    </div>
+
+    <!--search-->
+    <div class="container mt-5">
+        <h1>Welcome! Search for Hostels and Rentals</h1>
+        <form class="search-section">
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label for="state"> State</label>
+                    <select class="custom-select" id="state" name="state">
+                        <option selected>Choose a state...</option>
+                        <option value="state1">Andhra pradesh</option>
+                        <option value="state2">State 2</option>
+                        <option value="state3">State 3</option>
+                    </select>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="city">City</label>
+                    <select class="custom-select" id="city" name="city">
+                        <option selected>Choose your city...</option>
+                        <option value="city1">Srikakulam</option>
+                        <option value="city2">Vijyanagaram</option>
+                        <option value="city3">Vijayawada</option>
+                        <option value="city3">Visakapatanam</option>
+                        
+                    </select>
+                </div>
+                
+            </div>
+            <a href="display.html">Search</a>
+            <div class="insr"> 
+                <pre>INSTRUCTIONS:
+                1.In the "State" field, select the name of the state you're interested in.
+                2.In the "City" field, choosse the name of the city you want to search in.
+                3.After entering both the state and city, click the "Search" button.
+                4.Browse through the search results to find available options in your chosen location</pre></div>
+
+            <!--scroller-->
+            <div class="scroller">
+                <div class="container">
+                    <div class="scrolling-announcement">
+                        <div class="container">
+                            <div class="scrolling-text">
+                                This website currently only scopes up to city Srikakulam, Andhra Pradesh, India. As part of further development,the scope is increased respectively.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+            </form>
+     </div>
+     
+     
+    <script src="https://kit.fontawesome.com/dbed6b6114.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</html>
