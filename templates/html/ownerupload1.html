@@ -1,0 +1,159 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <title>Your Webpage</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+        /* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Style for the navigation bar */
+        .navbar {
+            background-color: #000000;
+            overflow: hidden;
+            display: flex;
+            flex-direction: row;
+            justify-items: center;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 12;
+            height: 30%;
+
+        }
+
+        .navbar a {
+            float: right;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 18px 15px;
+            text-decoration: none;
+            font-size: 20px;
+            margin-right: 1%;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .navbar a:hover {
+            background: #fff;
+            color: black;
+        }
+
+        .navbar div {
+            color: white;
+            margin: 3%;
+            font-size: 25px;
+        }
+
+        .container h2 {
+            margin-top: 3%;
+            text-decoration: underline;
+
+        }
+
+        .card {
+            border: 3px solid #3c83ff;
+        }
+
+        .card:hover, .card:active {
+            transform: scale(1.05);
+            transition: transform 0.2s;
+        }
+
+        .card .card-body img {
+            margin: 2%; /* Add margin around the images */
+        }
+
+    </style>
+</head>
+<body>
+
+
+<!-- Navigation bar -->
+<div class="navbar">
+    <!-- Logo -->
+    <div class="logo">
+        <h2>HOSTELS & RENTALS</h2>
+    </div>
+    <a href="{% url 'index' %}">Home</a>
+    <a href="{% url 'about' %}">About Us</a>
+    <a href="{% url 'contactus' %}">Contact Us</a>
+    <a href="{% url 'feedback' %}">Feedback</a>
+    <a href="#">PROFILE</a>
+    <a href="{% url 'logout' %}" class="logout">log out</a>
+</div>
+{% if messages %}
+        {% for message in messages %}
+            {% if message.tags == 'error' %}
+                <div class="alert alert-danger" role="alert" style="font-weight: bold">
+                    {{ message }}
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+
+    <!-- Display success messages -->
+    {% if messages %}
+        {% for message in messages %}
+            {% if message.tags == 'success' %}
+                <div class="alert alert-success" role="alert" style="font-weight: bold">
+                    {{ message }}
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+<div class="container">
+    <h2>Upload a new rental or hostel</h2>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card text-center" style="width:22rem;">
+                    <img src="{% static 'images/Vaishnavi ladies .png.jpg' %}" class="card-img-top" alt="Hostel Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Hostel</h5>
+                        <p class="card-text">Upload your new hostel room</p>
+                        <a href="{% url 'upload_hostel' %}" class="btn btn-primary">Hostel</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card text-center" style="width: 22rem;">
+                    <img src="{% static  'images/Sri shivabalaji .jpg' %}"
+                         class="card-img-top" alt="Rental Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Rental</h5>
+                        <p class="card-text">upload your new room for rental
+                        <p>
+                            <a href="{% url 'upload_room' %}" class="btn btn-primary">Rental</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+<script src="https://kit.fontawesome.com/dbed6b6114.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

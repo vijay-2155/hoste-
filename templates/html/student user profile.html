@@ -96,52 +96,47 @@
         </div>
 
         <!-- Second Row - Saved Posts -->
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card saved-posts-card w-100">
-                    <div class="card-header">Saved Posts</div>
-                    <div class="card-body">
-                        <!-- Horizontal Cards with Margins -->
-                        <div class="row">
-                            <div class="col-lg-3 mb-3">
-                                <div class="card">
-                                    <img src="post1.jpg" class="card-img-top" alt="Post 1">
-                                    <div class="card-body">
-                                        <a href="post1.html"><h5 class="card-title">Post 1</h5></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 mb-3">
-                                <div class="card">
-                                    <img src="post2.jpg" class="card-img-top" alt="Post 2">
-                                    <div class="card-body">
-                                        <a href="post2.html"><h5 class="card-title">Post 2</h5></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 mb-3">
-                                <div class="card">
-                                    <img src="post3.jpg" class="card-img-top" alt="Post 3">
-                                    <div class="card-body">
-                                        <a href="post3.html"><h5 class="card-title">Post 3</h5></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 mb-3">
-                                <div class="card">
-                                    <img src="post4.jpg" class="card-img-top" alt="Post 4">
-                                    <div class="card-body">
-                                        <a href="post4.html"><h5 class="card-title">Post 4</h5></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <div class="container">
+            <h1 class="mt-4">Saved Posts</h1>
+            <div class="row" id="post-list">
+                <h4>your saved posts appear here</h4>
+                <!-- Saved posts in cards will be displayed here -->
             </div>
         </div>
-    </div>
+    
 
     <!-- Add Bootstrap JS and Popper.js scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2" ></script>
+    <script>
+        // Inline JavaScript for displaying saved posts
+        document.addEventListener("DOMContentLoaded", function () {
+            // Fetch saved posts from the server
+            fetch("get_saved_posts.php")
+                .then(response => response.json())
+                .then(posts => {
+                    const postList = document.getElementById("post-list");
+                    posts.forEach(post => {
+                        const card = document.createElement("div");
+                        card.classList.add("col-lg-4", "col-md-6", "mb-4");
+                        
+                        card.innerHTML = `
+                            <div class="card">
+                                <img src="${post.image_path}" class="card-img-top" alt="Post Image">
+                                <div class="card-body">
+                                    <h5 class="card-title">${post.data}</h5>
+                                </div>
+                            </div>
+                        `;
+                        
+                        postList.appendChild(card);
+                    });
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        });
+    </script>
+</body>
+</html>
+

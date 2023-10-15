@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import Location, RentalInformation, HostelInformation
 
-# Register your models here.
+admin.site.register(Location)
+admin.site.register(RentalInformation)
+admin.site.register(HostelInformation)

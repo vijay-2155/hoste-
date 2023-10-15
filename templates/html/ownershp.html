@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -82,13 +83,12 @@
     <div class="logo">
         <h2>HOSTELS & RENTALS</h2>
     </div>
-        <a href="mainhp.html">Home</a>
-        <a href="about us.html">About Us</a>
-        <a href="contact.html">Contact Us</a>
-        <a href="follow us.html">Feedback</a>
-        <a href="user profile.html">PROFILE</a>
-        <a href="account settings.html">SETTINGS</a>
-        <a href="FIRST PAGE .HTML" class="logout">log out</a>
+         <a href="{% url 'index' %}">Home</a>
+        <a href="{% url 'about' %}">About Us</a>
+        <a href="{% url 'contactus' %}">Contact Us</a>
+        <a href="{% url 'feedback' %}">Feedback</a>
+        <a href="#">PROFILE</a>
+        <a href="{% url 'logout' %}" class="logout">log out</a>
     </div>
     <h1>WELCOME! HERE ARE SOMETHINGS YOU CAN DO TODAY!</h1>
      <div class="container">
@@ -97,7 +97,7 @@
             <div class="col-md-4">
                 <a href="upload.html" class="card-link">
                     <div class="card">
-                        <img src="{{ url_for('static', filename='images/upload.png') }}" class="card-img-top" alt="Upload Image">
+                        <img src="{% static 'images/upload.png' %}" class="card-img-top" alt="Upload Image">
                         <div class="card-body">
                             <h5 class="card-title">Upload</h5>
                             <h3>upload new rentals or hostels</h3>
@@ -110,7 +110,7 @@
             <div class="col-md-4">
                 <a href="edit-project.html" class="card-link">
                     <div class="card">
-                        <img src="{{ url_for('static', filename='images/edit.jpg') }}" class="card-img-top" alt="Edit Project Image">
+                        <img src="{% static 'images/edit.jpg' %}" class="card-img-top" alt="Edit Project Image">
                         <div class="card-body">
                             <h5 class="card-title">Edit Previous Project</h5>
                             <h3>edit your Previous uploads</h3>
@@ -123,7 +123,7 @@
             <div class="col-md-4">
                 <a href="edit-details.html" class="card-link">
                     <div class="card">
-                        <img src="{{ url_for('static', filename='images/details.jpg') }}" class="card-img-top" alt="Edit Details Image">
+                        <img src="{% static 'images/details.jpg' %}" class="card-img-top" alt="Edit Details Image">
                         <div class="card-body">
                             <h5 class="card-title">Edit Details</h5>
                             <h3>edit your contact and other details</h3>
@@ -136,7 +136,7 @@
             <div class="col-md-4">
                 <a href="edit-details.html" class="card-link">
                     <div class="card">
-                        <img src="{{ url_for('static', filename='images/partnership.jpg') }}" class="card-img-top" alt="Edit Details Image">
+                        <img src="{% static 'images/partnership.jpg' %}" class="card-img-top" alt="Edit Details Image">
                         <div class="card-body">
                             <h5 class="card-title">start partnership</h5>
                             <h3>start partnership with us to get free advertise on on site</h3>
@@ -182,4 +182,5 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
 </html>

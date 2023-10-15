@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <title>Your Webpage</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+        /* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Style for the navigation bar */
+        .navbar {
+            background-color: #000000;
+            overflow: hidden;
+            display: flex;
+            flex-direction: row;
+            justify-items: center;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 12;
+            height: 30%;
+
+        }
+
+        .navbar a {
+            float: right;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 18px 15px;
+            text-decoration: none;
+            font-size: 20px;
+            margin-right: 1%;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .navbar a:hover {
+            background: #fff;
+            color: black;
+        }
+
+        .navbar div {
+            color: white;
+            margin: 3%;
+            font-size: 25px;
+        }
+
+        .container h2 {
+            margin-top: 3%;
+            text-decoration: underline;
+
+        }
+
+        body {
+            background-color: #3d4b56;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-upload {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image-upload input[type="file"] {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 0;
+            padding: 0;
+            cursor: pointer;
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }
+
+        .image-upload label {
+            display: block;
+            width: 80%;
+            height: 20%;
+            background-color: #3c83ff; /* Blue background */
+            border-radius: 10px;
+            text-align: center;
+            color: #ffffff; /* White text */
+            line-height: 200px;
+            cursor: pointer;
+            margin: 0 auto; /* Center the box horizontally */
+        }
+
+        .default-image {
+            width: 80%;
+            height: 20%;
+        }
+
+        /* Form styles */
+        .form-group label {
+            color: #3d4b56; /* Dark blue text */
+        }
+
+        .form-control {
+            background-color: #ffffff; /* White input background */
+            color: #000000; /* Black text */
+        }
+
+        .btn-primary {
+            background-color: #3c83ff; /* Blue button background */
+            border-color: #3c83ff; /* Blue border color */
+            color: #ffffff; /* White text */
+        }
+    </style>
+</head>
+<body>
+
+
+<!-- Navigation bar -->
+<div class="navbar">
+    <!-- Logo -->
+    <div class="logo">
+        <h2>HOSTELS & RENTALS</h2>
+    </div>
+    <a href="{% url 'index' %}">Home</a>
+    <a href="{% url 'about' %}">About Us</a>
+    <a href="{% url 'contactus' %}">Contact Us</a>
+    <a href="{% url 'feedback' %}">Feedback</a>
+    <a href="#">PROFILE</a>
+    <a href="#">SETTINGS</a>
+    <a href="{% url 'logout' %}" class="logout">log out</a>
+</div>
+{% if error_message %}
+    <div class="alert alert-danger">
+        <p>{{ error_message }}</p>
+    </div>
+{% endif %}
+
+
+<!--uploding card-->
+<div class="container d-flex flex-column align-items-center justify-content-center min-vh-100">
+
+    <h2 class="text-center mb-4">Rental Information</h2>
+    <form class="w-100" method="post" action="{% url 'upload_room' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-group image-upload">
+        <input type="file" id="imageUpload" name="image" accept="image/*" multiple>
+        <label for="imageUpload" class="default-image">
+            Add images
+        </label>
+    </div>
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" id="name" name="name">
+    </div>
+    <div class="form-group">
+        <label for="rentalType">Rental Type:</label>
+        <select class="form-control" id="rentalType" name="rentalType">
+            <option value="house">House</option>
+            <option value="apartment">Apartment</option>
+            <option value="condo">Condo</option>
+            <option value="other">Other</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="facilities">Facilities:</label>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="waterFacilities" name="waterFacilities" value="yes">
+            <label class="form-check-label" for="waterFacilities">Water Facilities</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="electricity" name="electricity" value="yes">
+            <label class="form-check-label" for="electricity">Electricity</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="groceryStores" name="groceryStores" value="yes">
+            <label class="form-check-label" for="groceryStores">Proximity to Grocery Stores</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="nearestTransportBus" name="nearestTransportBus" value="bus">
+            <label class="form-check-label" for="nearestTransportBus">Nearest Transportation (Bus)</label>
+        </div>
+        <div class="form-group">
+            <label for="maxPeople">Max Number of People:</label>
+            <input type="number" class="form-control" id="maxPeople" name="maxPeople">
+        </div>
+        <div class="form-group">
+            <label for="numRooms">Number of Rooms:</label>
+            <input type="number" class="form-control" id="numRooms" name="numRooms">
+        </div>
+    </div>
+        <div class="form-group">
+        <label for="price">Price: per Month</label>
+        <input type="text" class="form-control" id="price" name="price">
+    </div>
+    <div class="form-group">
+        <label for="location">Location:</label>
+        <input type="text" class="form-control" id="location" name="location">
+    </div>
+    <div class="form-group">
+        <label for="extraInfo">Extra Information:</label>
+        <textarea class="form-control" id="extraInfo" name="extraInfo" rows="4"></textarea>
+    </div>
+    <div class="form-group">
+        <label for "Ownername">Owner Name:</label>
+        <input type="text" class="form-control" id="Ownername" name="Ownername">
+    </div>
+    <div class="form-group">
+        <label for="phone">Phone Number:</label>
+        <input type="tel" class="form-control" id="phone" name="phone" placeholder="Phone Number">
+    </div>
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="hasWhatsApp" name="hasWhatsApp">
+        <label class="form-check-label" for="hasWhatsApp">Has WhatsApp</label>
+    </div>
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+    </div>
+    <div class="form-group text-center mt-4">
+        <button type="submit" class="btn btn-primary btn-lg">
+            <i class="fas fa-upload fa-2x"></i> Upload
+        </button>
+    </div>
+</form>
+
+</div>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+<script src="https://kit.fontawesome.com/dbed6b6114.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+</html>

@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,202 +9,187 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
-    <!-- Your custom CSS -->
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-        /* Reset some default styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins',sans-serif;
-        }
+<!-- Your custom CSS -->
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+    /* Reset some default styles */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
 
-        /* Style for the navigation bar */
-        .navbar {
-            background-color: #000000;
-            overflow: hidden;
-            display: flex;
-            flex-direction: row;
-            justify-items: center;
-            align-items: center;
-            justify-content: space-between;
-            z-index: 12;
-            height:30%;
+    /* Style for the navigation bar */
+    .navbar {
+        background-color: #000000;
+        overflow: hidden;
+        display: flex;
+        flex-direction: row;
+        justify-items: center;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 12;
+        height: 30%;
 
-        }
+    }
 
-        .navbar a {
-            float: right;
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 18px 15px;
-            text-decoration: none;
-            font-size:20px;
-            margin-right:1%;
-            border-radius: 6px;
-            transition: all 0.3s ease;
-        }
-        .navbar a:hover{
-            background: #fff;
-            color: black;
-        }
+    .navbar a {
+        float: right;
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 18px 15px;
+        text-decoration: none;
+        font-size: 20px;
+        margin-right: 1%;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+    }
 
-        .navbar div{
-            color: white;
-            margin:3%;
-            font-size: 25px;
-        }
-        body {
-            background-color: white;
-            color: black;
-        }
-        .card {
-            border: 3px solid blue;
-            background-color: white;
-            color: black;
-            margin: 10px;
-            width: 100%;
-            height:80vh;
-        }
-        h3{
-            text-align: center;
-            margin-top: 1%;
-            font-size: 44px;
-            text-decoration: dotted;
-        }
-        .navbar {
-            align-items: center;
-        }
-        .navbar-brand {
-            margin-right: auto;
-        }
-        .nav-item {
-            display: flex;
-            align-items: center;
-        }
-        
-        .search-bar {
-            border: 1px solid black; /* Set the border to black */
-            margin-right: 10px; /* Add some space between the search bar and filter icon */
-        }
-        .search-btn {
-            background-color: blue; /* Set the background color to blue */
-            color: white; /* Set the text color to white */
-        }
-        .filter-icon {
-            margin-right: 10px; /* Add some space between the search bar and filter icon */
-        }
-    </style>
+    .navbar a:hover {
+        background: #fff;
+        color: black;
+    }
+
+    .navbar div {
+        color: white;
+        margin: 3%;
+        font-size: 25px;
+    }
+
+    body {
+        background-color: white;
+        color: black;
+    }
+
+    .card {
+        border: 3px solid blue;
+        background-color: white;
+        color: black;
+        margin: 10px;
+        width: 100%;
+        height: 80vh;
+    }
+
+    h3 {
+        text-align: center;
+        margin-top: 1%;
+        font-size: 44px;
+        text-decoration: dotted;
+    }
+
+    .navbar {
+        align-items: center;
+    }
+
+    .navbar-brand {
+        margin-right: auto;
+    }
+
+    .nav-item {
+        display: flex;
+        align-items: center;
+    }
+
+    .search-bar {
+        border: 1px solid black; /* Set the border to black */
+        margin-right: 10px; /* Add some space between the search bar and filter icon */
+    }
+
+    .search-btn {
+        background-color: blue; /* Set the background color to blue */
+        color: white; /* Set the text color to white */
+    }
+
+    .filter-icon {
+        margin-right: 10px; /* Add some space between the search bar and filter icon */
+    }
+</style>
 </head>
 <body>
-    <!-- Navigation bar -->
-    <div class="navbar">
-        <!-- Logo -->
+<!-- Navigation bar -->
+<div class="navbar">
+    <!-- Logo -->
     <div class="logo">
         <h2>HOSTELS & RENTALS</h2>
     </div>
-        <a href="mainhp.html">Home</a>
-        <a href="about us.html">About Us</a>
-        <a href="contact.html">Contact Us</a>
-        <a href="follow us.html">Feedback</a>
-        <a href="user profile.html">PROFILE</a>
-        <a href="account settings.html">SETTINGS</a>
-        <a href="FIRST PAGE .HTML" class="logout">log out</a>
-    </div>
-    <!---navbar2-->
+    <a href="{% url 'index' %}">Home</a>
+    <a href="{% url 'about' %}">About Us</a>
+    <a href="{% url 'contactus' %}">Contact Us</a>
+    <a href="{% url 'feedback' %}">Feedback</a>
+    <a href="#">PROFILE</a>
+    <a href="{% url 'logout' %}" class="logout">log out</a>
+</div>
+<!---navbar2-->
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Here are nearby hostels and rentals</a>
-        <div class="navbar-nav">
-            <div class="nav-item">
-                <input class="form-control search-bar" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success search-btn" type="submit">Search</button>
-            </div>
-            <a class="nav-item filter-icon" href="#" style="color: black;">
-                <i class="fas fa-filter"></i> Filter
-            </a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Here are nearby hostels and rentals</a>
+    <div class="navbar-nav">
+        <div class="nav-item">
+            <input class="form-control search-bar" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success search-btn" type="submit">Search</button>
         </div>
-    </nav>
+        <a class="nav-item filter-icon" href="#" style="color: black;">
+            <i class="fas fa-filter"></i> Filter
+        </a>
+    </div>
+</nav>
 
-    <!-- Add Font Awesome for filter icon (you need to include Font Awesome in your project) -->
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<!-- Add Font Awesome for filter icon (you need to include Font Awesome in your project) -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
-    <!-- Add Bootstrap JS and jQuery (for navbar toggling) -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Add Bootstrap JS and jQuery (for navbar toggling) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
 
 
-
-    <!--cards-->
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="card">
-                    <img src="../images'/Ambica boys .jpg" class="card-img-top" alt="Image 1">
-                    <div class="card-body">
-                        <h5 class="card-title">ambica boys hostel</h5>
-                        <p class="card-text">Some text describing the first card.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card">
-                    <img src="../images'/Sri shivabalaji .jpg" class="card-img-top" alt="Image 2">
-                    <div class="card-body">
-                        <h5 class="card-title">Card Title 2</h5>
-                        <p class="card-text">Some text describing the second card.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card">
-                    <img src="../images'/Vaishnavi ladies .png.jpg" class="card-img-top" alt="Image 3">
-                    <div class="card-body">
-                        <h5 class="card-title">Card Title 3</h5>
-                        <p class="card-text">Some text describing the third card.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card">
-                    <img src="../images'/Sri shivabalaji .jpg" class="card-img-top" alt="Image 3">
-                    <div class="card-body">
-                        <h5 class="card-title">Card Title 3</h5>
-                        <p class="card-text">Some text describing the third card.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card">
-                    <img src="../images'/Vaishnavi ladies .png.jpg" class="card-img-top" alt="Image 3">
-                    <div class="card-body">
-                        <h5 class="card-title">Card Title 3</h5>
-                        <p class="card-text">Some text describing the third card.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card">
-                    <img src="../images'/Ambica boys .jpg" class="card-img-top" alt="Image 3">
-                    <div class="card-body">
-                        <h5 class="card-title">Card Title 3</h5>
-                        <p class="card-text">Some text describing the third card.</p>
-                    </div>
+<!--cards-->
+<div class="container mt-5">
+    <h3>Hostels</h3>
+    <div class="row">
+        {% for hostel in hostel_results %}
+        <div class="col-lg-4">
+            <div class="card">
+                <img src="{{ hostel.image.url }}" class="card-img-top" alt="{{ hostel.name }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ hostel.name }}</h5>
+                    <p class="card-text">{{ hostel.extra_info }}</p>
+                    <a href="{% url 'display_detail' 'hostel' hostel.id %}" class="btn btn-primary">View</a>
                 </div>
             </div>
         </div>
+        {% endfor %}
     </div>
+</div>
 
-    <!-- Add Bootstrap JS and jQuery (for card styling) -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<div class="container mt-5">
+    <h3>Rental Properties</h3>
+    <div class="row">
+        {% for rental in rental_results %}
+        <div class="col-lg-4">
+            <div class="card">
+                <img src="{{ rental.image.url }}" class="card-img-top" alt="{{ rental.name }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ rental.name }}</h5>
+                    <p class="card-text">{{ rental.extra_info }}</p>
+                    <a href="{% url 'display_detail' 'rental' rental.id %}" class="btn btn-primary">View</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+<!-- Add Bootstrap JS and jQuery (for card styling) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
 </body>
 </html>
